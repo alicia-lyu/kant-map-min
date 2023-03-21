@@ -1,0 +1,22 @@
+[
+    {
+        "id": 0,
+        "name": "sensibility"
+    },
+    {
+        "id": 1,
+        "name": "understanding"
+    },
+    {
+        "id": 2,
+        "name": "experience in general"
+    },
+    {
+        "id": 3,
+        "name": "the boundary of experience, or outside its sphere"
+    },
+    {
+        "id": 4,
+        "name": "other"
+    }
+]
