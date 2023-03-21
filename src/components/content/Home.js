@@ -1,56 +1,33 @@
 import * as echarts from 'echarts';
-import { useEffect, useRef, useState } from 'react';
-import terms from "../../assets/terms.json";
-import links from "../../assets/links.json";
-import categories from "../../assets/categories.json";
+import { useEffect, useRef } from 'react';
 import "./home.css"
+import useWindowSize from '../../hooks/useWindowSize';
+import useOptions from '../../hooks/useOptions';
 
 function Home() {
+    const chartDomRef = useRef(null);
     const chartRef = useRef(null);
+    const options = useOptions();
+
+    // the Home component rerenders when window size changes
+    const windowSize = useWindowSize();
 
     useEffect(() => {
-        const chartDom = chartRef.current;
+        const chartDom = chartDomRef.current;
         const chart = echarts.init(chartDom);
-        const options = {
-            tooltip: {},
-            legend: [
-                {
-                    data: categories.map(category => category.name)
-                }
-            ],
-            animationDurationUpdate: 1500,
-            animationEasingUpdate: 'quinticInOut',
-            series: [
-                {
-                    name: 'Kant Map',
-                    type: 'graph',
-                    layout: 'circular',
-                    circular: {
-                        rotateLabel: true
-                    },
-                    data: terms,
-                    links: links,
-                    categories: categories,
-                    roam: true,
-                    label: {
-                        position: 'right',
-                        formatter: '{b}'
-                    },
-                    lineStyle: {
-                        color: 'source',
-                        curveness: 0.3
-                    }
-                }
-            ]
-        };
         chart.setOption(options);
-    }, [])
+        chartRef.current = chart;
+    }, [options])
 
-    
+    // resize chart when windowSize changes
+    useEffect(() => {
+        const chart = chartRef.current;
+        if (chart) {
+            chart.resize();
+        }
+    }, [windowSize, chartRef, options])
 
-
-
-    return <div ref={chartRef} id="chart" />
+    return <div ref={chartDomRef} id="chart" />
 }
 
 export default Home;
