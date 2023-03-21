@@ -5,7 +5,7 @@ import Layout from './Layout';
 import Home from './components/content/Home';
 import Terms from './components/content/Terms';
 
-import terms from "./assets/terms.json"
+import termsData from "./assets/terms.json"
 import { useEffect, useState } from 'react';
 import Term from './components/content/Term';
 
@@ -21,9 +21,8 @@ function App() {
   const [terms, setTerms] = useState([]);
 
   useEffect(() => {
-    const termsProcessed = terms.map((term) => {
-      term.sentences = term.sentences.split("\n");
-      return term;
+    const termsProcessed = termsData.map((term) => {
+      return { ...term, sentences: term.sentences.split("\n") }
     })
     setTerms(termsProcessed);
   }, [])
@@ -31,20 +30,20 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Layout/>}>
-          <Route index element={<Home/>}/>
-          <Route path='/terms' element={<Terms/>}/>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='/terms' element={<Terms terms={terms}/>} />
           {
-            terms.map(term => <Route path={`/term/${term.name.replaceAll(" ", "-")}`} 
-                                element={<Term 
-                                  key={term.id}
-                                  id={term.id}
-                                  name={term.name}
-                                  weight={term.weight}
-                                  english={term.english}
-                                  weblink={term.weblink}
-                                  Nsentence={term.Nsentence}
-                                  sentences={term.sentences}/>}/>)
+            terms.map(term => <Route path={`/term/${term.name.replaceAll(" ", "-")}`}
+            key={term.id}
+              element={<Term
+                id={term.id}
+                name={term.name}
+                weight={term.weight}
+                english={term.english}
+                weblink={term.weblink}
+                Nsentence={term.Nsentence}
+                sentences={term.sentences} />} />)
           }
         </Route>
       </Routes>

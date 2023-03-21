@@ -1,0 +1,16 @@
+#wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+div.nav {
+    --bs-nav-link-font-size: 1.25em;
+    --bs-nav-link-font-weight: 300;
+    --bs-nav-link-color: #000;
+    --bs-nav-link-hover-color: #000;
+}
+
+div.nav-tabs {
+    --bs-nav-tabs-link-active-color: #000;
+}

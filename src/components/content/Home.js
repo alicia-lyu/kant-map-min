@@ -27,7 +27,7 @@ function Home() {
         }
     }, [windowSize, chartRef, options])
 
-    return <div ref={chartDomRef} id="chart" />
+    return <div ref={chartDomRef} id="chart" className='mt-3'/>
 }
 
 export default Home;
