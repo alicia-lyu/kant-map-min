@@ -34,12 +34,12 @@ function Home() {
     return <Container className="flexContainer">
         <section id='one'>
             <h1>A Relationship Graph of Kant's Terminology in The Critique of Pure Reason</h1>
-            <h2>Generated with <a href = 'https://huggingface.co/bert-base-german-cased'>the BERT Model</a></h2>
+            <h2>— Generated with <a href = 'https://huggingface.co/bert-base-german-cased'>the BERT Model</a></h2>
             <div ref={chartDomRef} id="chart" />
         </section>
         <section id='two'>
             <img src={Kant} alt='Immanuel Kant'/>
-            <p>Connect with me <a href='mailto:alicia.w.lyu@gmail.com' target="_blank"><FontAwesomeIcon icon={faEnvelope}/> alicia.w.lyu@gmail.com</a></p>
+            <p>Connect with me <a href='mailto:alicia.w.lyu@gmail.com' target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faEnvelope}/> alicia.w.lyu@gmail.com</a></p>
         </section>
     </Container>
 

@@ -14,3 +14,7 @@ a.btn {
     --bs-btn-active-border-color: #fff;
     font-size: smaller;
 }
+
+.align-wrapper {
+    width: 100%;
+}
