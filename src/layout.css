@@ -1,16 +1,30 @@
 #wrap {
-    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+    min-width: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-div.nav {
+div.navbar-nav {
     --bs-nav-link-font-size: 1.25em;
     --bs-nav-link-font-weight: 300;
     --bs-nav-link-color: #000;
     --bs-nav-link-hover-color: #000;
+    margin: auto;
 }
 
-div.nav-tabs {
-    --bs-nav-tabs-link-active-color: #000;
+a.nav-link {
+    padding-bottom: 0;
+    margin: 2px;
+    transition: border-color 1s ease;
+    border-bottom: 1px solid transparent;
+}
+
+a.nav-link:hover {
+    border-bottom: solid #000 1px;
+}
+
+a.active {
+    border-bottom: solid #000 1px;
 }

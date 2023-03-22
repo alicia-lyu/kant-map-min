@@ -1,3 +1,46 @@
+.container.flexContainer {
+    flex-grow: 1;
+    margin-top: 1em;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
 #chart {
     flex-grow: 1;
+    width: 100%;
+}
+
+#one > p {
+    margin-left: auto;
+    margin-bottom: 0;
+}
+
+#one > h1,h2 {
+    font-weight: 400;
+}
+
+#one > h1 {
+    font-size: 1.5em;
+}
+
+#one > h2 {
+    font-size: 1.25em;
+    margin-bottom: 2em;
+}
+
+#two > img {
+    width: 100%;
+}
+
+#two > p {
+    margin-top: auto;
 }
