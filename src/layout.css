@@ -31,12 +31,15 @@ a.active {
     border-bottom: solid #000 1px;
 }
 
-a.clickable {
+.clickable a {
     color: #000;
     text-decoration: none;
 }
 
-a.clickable:hover {
-    color: #000;
+.clickable:hover {
     box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.564);
+}
+
+.clickable a:hover {
+    color: #000;
 }
